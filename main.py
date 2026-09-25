@@ -1,34 +1,23 @@
-class Child:
-  def __init__(name,age):
-      name = name
-      age = age
+import colorama
+from colorama import Fore, init
 
-  def celebrate_birthday():
-      age = age + 1
-      return "Свядкуе день народження"
+init(autoreset=True)
 
+print(Fore.GREEN + "=== Інтроспекція модуля colorama ===")
 
-class Hobby:
-    def __init__(self,hobby,hours):
-        self.hobby = hobby
-        self.hours = hours
+print("Назва модуля:", colorama.__name__)
+print("Файл модуля:", colorama.__file__)
 
+print("Версія:", getattr(colorama, '__version__', 'Невідомо'))
 
-    def practice(self):
-        return "урок" + hooby
+attributes = dir(colorama)
+print("\nУсі атрибути та методи модуля:")
+print(attributes)
 
+print("\nПеревірка типів:")
+print("Тип Fore:", type(Fore))
 
-class Pupil(Child, Hobby):
-    def __init__( name, age, hobby, phours, school_grade):
-        super().__init__(name, age)
-        school_grade = school_grade
+print("Тип init:", type(init))
 
-    def study():
-        return f"Учень {name} навчається у {school_grade} класі"
-
-
-student = Pupil("Марійка", 10, "Малювання", 4, "5-А")
-
-print(student.study())
-print(student.celebrate_birthday())
-print(student.practice())
+print("\nДокументація:")
+print(init.__doc__)
